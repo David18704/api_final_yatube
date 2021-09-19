@@ -1,8 +1,9 @@
 from django.contrib import admin
-from rest_framework import routers
 from django.urls import include, path
 from django.views.generic import TemplateView
-from rest_framework.authtoken import views
+
+from rest_framework import routers
+
 from api.views import PostViewSet, GroupViewSet, CommentViewSet, FollowViewSet
 
 router = routers.DefaultRouter()
