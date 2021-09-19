@@ -19,7 +19,7 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('auth/', include('djoser.urls')),
     path('api/v1/', include('djoser.urls.jwt')),
-    path('api/v1/', include(router.urls)),  
+    path('api/v1/', include(router.urls)),
     path(
         'redoc/',
         TemplateView.as_view(template_name='redoc.html'),
