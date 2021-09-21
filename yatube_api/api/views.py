@@ -20,7 +20,7 @@ class PostViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
-    
+
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
@@ -40,10 +40,10 @@ class CommentViewSet(viewsets.ModelViewSet):
         post = get_object_or_404(Post, id=self.kwargs['post_id'])
         serializer.save(author=self.request.user, post=post)
 
-    
-class GetPostViewSet(mixins.ListModelMixin, mixins.CreateModelMixin ,
-                          viewsets.GenericViewSet):
-    pass 
+
+class GetPostViewSet(mixins.ListModelMixin, mixins.CreateModelMixin,
+                     viewsets.GenericViewSet):
+    pass
 
 
 class FollowViewSet(GetPostViewSet):
