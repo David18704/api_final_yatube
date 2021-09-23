@@ -47,15 +47,13 @@ class GetPostViewSet(mixins.ListModelMixin, mixins.CreateModelMixin,
 
 
 class FollowViewSet(GetPostViewSet):
-    queryset = Follow.objects.all()
     serializer_class = FollowSerializer
     permission_classes = [IsAuthenticated, ]
     filter_backends = (DjangoFilterBackend, filters.SearchFilter)
     search_fields = ('following__username',)
 
     def get_queryset(self):
-        queryset = Follow.objects.filter(user=self.request.user)
-        return queryset
+        return self.request.user.follower.all()
 
     def perform_create(self, serializer):
         if self.request.user.username == self.request.data['following']:
