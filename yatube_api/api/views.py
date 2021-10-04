@@ -6,7 +6,7 @@ from rest_framework.permissions import (IsAuthenticatedOrReadOnly,
                                         IsAuthenticated)
 from django_filters.rest_framework import DjangoFilterBackend
 
-from posts.models import Post, Follow, Group
+from posts.models import Post, Group
 from .permissions import AuthorOrReadOnly
 from .serializers import (CommentSerializer, FollowSerializer,
                           PostSerializer, GroupSerializer)
